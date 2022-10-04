@@ -75,6 +75,7 @@ function App() {
         onDeleteToDo={handleDeleteToDo}
         onUpdateToDo={handleUpdateToDo}
         />
+        <NewToDo onAddToDo ={handleAddToDo} />
     </div>
   );
 }
