@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import {Route, Switch} from "react-router-dom";
 import Home from "./Home";
 import NavBar from './NavBar';
@@ -9,8 +9,38 @@ import Thursday from './Thursday';
 import Friday from './Friday';
 import Saturday from './Saturday';
 import Sunday from './Sunday';
+import ToDoList from "./ToDoList";
 
 function App() {
+
+  const [toDos, setToDos] = useState([])
+
+  // useEffect(() => {
+  //   fetch("http://localhost:4000/messages")
+  //     .then((r) => r.json())
+  //     .then((messages) => setMessages(messages));
+  // }, []);
+
+  function handleAddToDo(newToDo){
+    setToDos([...toDos, newToDo]);
+  }
+
+  function handleDeleteToDo(id){
+    const updatedToDos = toDos.filter((toDo) => toDo.id !== id);
+    setToDos(updatedToDos);
+  }
+
+  function handleUpdateToDo(updatedToDoObj){
+    const updatedToDos = toDos.map((toDo) => {
+      if(toDo.id === updatedToDoObj.id) {
+        return updatedToDoObj
+      } else {
+        return toDo
+      }
+    });
+    setToDos(updatedToDos)
+  }
+
   return (
     <div className="App">
       <NavBar />
@@ -18,28 +48,33 @@ function App() {
           <Route exact path = "/">
             <Home/>
           </Route>
-          <Route path = "/Monday">
+          <Route exact path = "/Monday">
             <Monday />
           </Route>
-          <Route path = "/Tuesday">
+          <Route exact path = "/Tuesday">
             <Tuesday />
           </Route>
-          <Route path = "/Wednesday">
+          <Route exact path = "/Wednesday">
             <Wednesday />
           </Route>
-          <Route path = "/Thursday">
+          <Route exact path = "/Thursday">
             <Thursday />
           </Route>
-          <Route path = "/Friday">
+          <Route exact path = "/Friday">
             <Friday />
           </Route>
-          <Route path = "/Saturday">
+          <Route exact path = "/Saturday">
             <Saturday />
           </Route>
-          <Route path = "/Sunday">
+          <Route exact path = "/Sunday">
             <Sunday />
           </Route>
         </Switch>
+        <ToDoList  
+        toDos={toDos}
+        onDeleteToDo={handleDeleteToDo}
+        onUpdateToDo={handleUpdateToDo}
+        />
     </div>
   );
 }
