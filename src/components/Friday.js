@@ -3,7 +3,7 @@ import React from "react";
 function Friday(){
     return (
         <div className="Friday">
-            <header>
+            <header className="Home-header">
                 Friday To-Do List
             </header>
         </div>
