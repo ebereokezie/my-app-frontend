@@ -9,37 +9,10 @@ import Thursday from './Thursday';
 import Friday from './Friday';
 import Saturday from './Saturday';
 import Sunday from './Sunday';
-import ToDoList from "./ToDoList";
+
 
 function App() {
 
-  const [toDos, setToDos] = useState([])
-
-  // useEffect(() => {
-  //   fetch("http://localhost:4000/messages")
-  //     .then((r) => r.json())
-  //     .then((messages) => setMessages(messages));
-  // }, []);
-
-  function handleAddToDo(newToDo){
-    setToDos([...toDos, newToDo]);
-  }
-
-  function handleDeleteToDo(id){
-    const updatedToDos = toDos.filter((toDo) => toDo.id !== id);
-    setToDos(updatedToDos);
-  }
-
-  function handleUpdateToDo(updatedToDoObj){
-    const updatedToDos = toDos.map((toDo) => {
-      if(toDo.id === updatedToDoObj.id) {
-        return updatedToDoObj
-      } else {
-        return toDo
-      }
-    });
-    setToDos(updatedToDos)
-  }
 
   return (
     <div className="App">
@@ -70,12 +43,7 @@ function App() {
             <Sunday />
           </Route>
         </Switch>
-        <ToDoList  
-        toDos={toDos}
-        onDeleteToDo={handleDeleteToDo}
-        onUpdateToDo={handleUpdateToDo}
-        />
-        <NewToDo onAddToDo ={handleAddToDo} />
+      
     </div>
   );
 }
