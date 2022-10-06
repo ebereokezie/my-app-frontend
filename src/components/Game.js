@@ -32,12 +32,9 @@ function Game({game, onDeleteGame, onUpdateGame}) {
             <p>Title: {game.title}</p>
             <p>Platform: {game.platform}</p>
             <p>Price:  ${game.price}</p>
-            <p>Review</p>
+            <p>Review:</p>
             {game.reviews.map((review) => (
-        <div>
-          <p>Score: {review.score}</p>
-          <p>Comment: {review.comment}</p>
-        </div>
+              <p>Score: {review.score}</p>
       ))}
             </li>
               
