@@ -1,10 +1,11 @@
 import React, { useState} from "react"
 
 
-function NewToDo({onAddToDo}) {
+function NewGame({onAddToDo}) {
     const [toDoBody, setToDoBody] = useState("")
 
-    function handleSubmit(e) {
+
+    function handleToDoSubmit(e) {
         e.preventDefault();
     
         fetch("http://localhost:9292/todos", {
@@ -24,7 +25,7 @@ function NewToDo({onAddToDo}) {
         }
 
 return (
-    <form className = "new-todo" onSubmit ={handleSubmit}>
+    <form className = "new-todo" onSubmit ={handleToDoSubmit}>
         <input
         type="text"
         name="body"
@@ -38,4 +39,4 @@ return (
 }
 
 
-export default NewToDo
+export default NewGame

@@ -1,50 +1,54 @@
 import React, {useEffect, useState} from "react";
-import ToDoList from "./ToDoList";
-import NewToDo from "./NewToDo";
+import GameList from "./GameList";
+import NewGame from "./NewGame";
+import SearchBar from "./Searchbar";
 import "../App.css";
 
 function Home(){
 
     
-  const [toDos, setToDos] = useState([])
+  const [games, setGames] = useState([])
+  const [filterByPlatform, setFilterByPlatform] = useState("Xbox 360")
 
   useEffect(() => {
     fetch("http://localhost:9292/games")
-      .then((r) => r.json())
-      .then((todos) => setToDos(todos));
+      .then(data => data.json())
+      .then(data => setGames(data));
   }, []);
 
-  function handleAddToDo(newToDo){
-    setToDos([...toDos, newToDo]);
+  function handleAddGame(newGame){
+    setGames([...games, newGame]);
   }
 
-  function handleDeleteToDo(id){
-    const updatedToDos = toDos.filter((toDo) => toDo.id !== id);
-    setToDos(updatedToDos);
+  function handleDeleteGame(id){
+    const updatedGames = games.filter((game) => game.id !== id);
+    setGames(updatedGames);
   }
 
-  function handleUpdateToDo(updatedToDoObj){
-    const updatedToDos = toDos.map((toDo) => {
-      if(toDo.id === updatedToDoObj.id) {
-        return updatedToDoObj
+  function handleUpdateGame(updatedGameObj){
+    const updatedGames = games.map((game) => {
+      if(game.id === updatedGameObj.id) {
+        return updatedGameObj
       } else {
-        return toDo
+        return game
       }
     });
-    setToDos(updatedToDos)
+    setGames(updatedGames)
   }
+
+  const filteredGames = games.filter((game)=> game.platform === filterByPlatform)
     return (
         <div className="Home">
             <header className="Home-header">
                 My Weekly To-Do List
             </header>
-
-          <ToDoList  
-        toDos={toDos}
-        onDeleteToDo={handleDeleteToDo}
-        onUpdateToDo={handleUpdateToDo}
+        <SearchBar games = {filteredGames} setGames = {setGames} setFilterByPlatform = {setFilterByPlatform} />
+          <GameList  
+        games={games}
+        onDeleteGame={handleDeleteGame}
+        onUpdateGame={handleUpdateGame}
         />
-        <NewToDo onAddToDo ={handleAddToDo} />
+        <NewGame onAddGame ={handleAddGame} />
         </div>
     )
 
