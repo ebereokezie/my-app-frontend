@@ -9,6 +9,7 @@ function SearchBar({games, setGames, setFilterByPlatform}) {
       <label>
         <strong>Filter:</strong>
         <select onChange={(e) => setFilterByPlatform(e.target.value)}>
+        <option value="All">All</option>
           <option value="Xbox 360">Xbox 360</option>
           <option value="Wii U">Wii U</option>
           <option value="PlayStation 4">PlayStation 4</option>

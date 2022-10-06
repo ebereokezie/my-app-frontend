@@ -8,7 +8,7 @@ function Home(){
 
     
   const [games, setGames] = useState([])
-  const [filterByPlatform, setFilterByPlatform] = useState("Xbox 360")
+  const [filterByPlatform, setFilterByPlatform] = useState("All")
 
   useEffect(() => {
     fetch("http://localhost:9292/games")
@@ -36,7 +36,13 @@ function Home(){
     setGames(updatedGames)
   }
 
-  const filteredGames = games.filter((game)=> game.platform === filterByPlatform)
+  const filteredGames = games.filter((game)=> {
+    if (filterByPlatform === "All"){
+      return true
+    }
+    else {
+      return game.platform === filterByPlatform
+  }})
     return (
         <div className="Home">
             <header className="Home-header">
@@ -44,7 +50,7 @@ function Home(){
             </header>
         <SearchBar games = {filteredGames} setGames = {setGames} setFilterByPlatform = {setFilterByPlatform} />
           <GameList  
-        games={games}
+        games={filteredGames}
         onDeleteGame={handleDeleteGame}
         onUpdateGame={handleUpdateGame}
         />
