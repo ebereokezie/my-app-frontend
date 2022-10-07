@@ -9,7 +9,7 @@ function EditGame({id, title, platform, price, onUpdateGame}){
 
     function handleFormSubmit(e) {
         e.preventDefault();
-        const updatedGame = {gameTitle, gamePlatform, gamePrice}
+
     
         fetch(`http://localhost:9292/games/${id}`, {
           method: "PATCH",
@@ -17,7 +17,9 @@ function EditGame({id, title, platform, price, onUpdateGame}){
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            body: updatedGame,
+            title: gameTitle,
+            platform: gamePlatform,
+            price: gamePrice
           }),
         })
           .then(data => data.json())

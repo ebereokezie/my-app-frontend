@@ -1,6 +1,6 @@
-import React, {useState} from "react";
+import React from "react";
 
-function SearchBar({games, setGames, setFilterByPlatform}) {
+function SearchBar({setFilterByPlatform}) {
 
  
   

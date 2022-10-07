@@ -18,29 +18,20 @@ function Game({game, onDeleteGame, onUpdateGame}) {
     }
 
     return (
-        <li>
-            {editGame ? (
-            <EditGame
-                id={game.id}
-                title={game.title}
-                platform = {game.platform}
-                price = {game.price}
-                onUpdateGame={handleUpdateGame}
-                />
+        <div>
+            {editGame ? (<EditGame key = {game.id} id={game.id} title={game.title} platform = {game.platform} price = {game.price} onUpdateGame={handleUpdateGame} />
         ) : (
           <li>
             <p>Title: {game.title}</p>
             <p>Platform: {game.platform}</p>
             <p>Price:  ${game.price}</p>
             <p>Review:</p>
-            {game.reviews.map((review) => (
-              <p>Score: {review.score}</p>
-      ))}
+            {game.reviews.score}
             </li>
               
         )}
             {
-                <div className="actions">
+                <div className="update_games">
                 <button onClick={() => setEditGame((editGame) => !editGame)}>
                   Edit Game
                 </button>
@@ -50,7 +41,7 @@ function Game({game, onDeleteGame, onUpdateGame}) {
               </div>
             }
             
-        </li>
+        </div>
     )
 }
 

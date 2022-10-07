@@ -16,7 +16,7 @@ function Home(){
       .then(data => setGames(data));
   }, []);
 
-  function handleAddGame(newGame){
+  function onAddGame(newGame){
     setGames([...games, newGame]);
   }
 
@@ -46,15 +46,11 @@ function Home(){
     return (
         <div className="Home">
             <header className="Home-header">
-                My Weekly To-Do List
+                Games and Review Scores
             </header>
         <SearchBar games = {filteredGames} setGames = {setGames} setFilterByPlatform = {setFilterByPlatform} />
-          <GameList  
-        games={filteredGames}
-        onDeleteGame={handleDeleteGame}
-        onUpdateGame={handleUpdateGame}
-        />
-        <NewGame onAddGame ={handleAddGame} />
+        <GameList games={filteredGames} onDeleteGame={handleDeleteGame} onUpdateGame={handleUpdateGame} />
+        <NewGame onAddGame ={onAddGame} games={filteredGames} />
         </div>
     )
 
