@@ -3,20 +3,12 @@ import React, { useState} from "react"
 
 function NewGame({onAddGame, games}) {
 
-  // const newGameTemplate = {
-  //       title: '',
-  //       platform: '',
-  //       price: 0,
-  //       review: {
-  //         score: 0
-  //       }
-  //     }
 
    
-      const [newReviewScore, setNewReviewScore] = useState(0)
+      const [newReviewScore, setNewReviewScore] = useState("")
       const [newGameTitle, setNewGameTitle] = useState("")
       const [newGamePlatform, setNewGamePlatform] = useState("")
-      const [newGamePrice, setNewGamePrice] = useState(0)
+      const [newGamePrice, setNewGamePrice] = useState("")
    
 
 
@@ -51,11 +43,12 @@ function NewGame({onAddGame, games}) {
 
 return (
   <div>
-    <form className = "new-game" onSubmit ={handleNewGameSubmit}>
+    <h2 className= "new-game-header">Add a new game to the collection</h2>
+    <form className = "submit-new-game" onSubmit ={handleNewGameSubmit}>
         <input type="text" name="title" placeholder = "Game Title" value={newGameTitle} onChange={(e)=> setNewGameTitle(e.target.value) } />
         <input type="text" name="platform" placeholder = "Game Platform" value={newGamePlatform} onChange={(e)=> setNewGamePlatform(e.target.value)} />
         <input type="number" name="price" placeholder = "Game Price" value={newGamePrice} onChange={(e)=> setNewGamePrice(e.target.value)} />
-        <input type="number" name="score" placeholder = "Review Score" value={newReviewScore} onChange={(e)=> setNewReviewScore(e.target.value)} />
+        <input type="number" name="score" placeholder = "Review Score" value={newReviewScore} onChange={(e)=> setNewReviewScore( e.target.value)} />
         <button type="submit">Add A Game</button>
     </form>
  </div>

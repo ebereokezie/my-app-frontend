@@ -48,11 +48,14 @@ function Home(){
     return (
         <div className="Home">
             <header className="Home-header">
-                Games and Review Scores
+                Games and Review Score Library
             </header>
         <SearchBar games = {filteredGames} setGames = {setGames} setFilterByPlatform = {setFilterByPlatform} />
-        <GameList games={filteredGames} onDeleteGame={handleDeleteGame} onUpdateGame={handleUpdateGame} />
+        
         <NewGame onAddGame ={onAddGame} games={filteredGames} />
+        
+        <GameList games={filteredGames} onDeleteGame={handleDeleteGame} onUpdateGame={handleUpdateGame} />
+        
         </div>
     )
 

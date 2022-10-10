@@ -21,6 +21,11 @@
   grid-template-columns: 80px 200px auto 40px;
 }
 
+.submit-new-game {
+  display: flex;
+  justify-content: center;
+  padding: 25px;
+}
 p {
   font-family: "Trebuchet MS", Verdana, sans-serif;
 }
@@ -30,5 +35,10 @@ h3 {
 }
 
 h4 {
-font-family: Copperplate, "Copperplate Gothic Light", fantasy; text-decoration: underline;
+font-family: Copperplate, "Copperplate Gothic Light", fantasy; text-decoration: underline; font-weight: bold;
+}
+
+.new-game-header{
+  text-align: center;
+  font-family: Copperplate, "Copperplate Gothic Light", fantasy;
 }
