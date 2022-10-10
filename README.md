@@ -1,71 +1,32 @@
-# Getting Started with Create React App
+# Game and Review Score Library
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A game library used to review quick information regarding popular games, including review scores. The frontend was built with ```React``` and the backend server was created with ```Sinatra```. 
 
-## Available Scripts
+# Installation
 
-In the project directory, you can run:
+You will need to install ``` node ``` and ``` npm ``` globally on your machine in order to use ```React```. 
 
-### `npm start`
+Installation:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+``` npm install ```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+To Start App:
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+``` npm start ```
 
-### `npm run build`
+In order to start the backend server ```Sinatra```:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+run ```bundle exec rake server``` in the terminal. 
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+To end the server:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```ctrl + c```
 
-### `npm run eject`
+Please note: ```Sinatra``` server must be running in order for the ```React``` app to fetch, update, or delete data.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Usage
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+This app was created to users with a gaming resource that provided frequently requested gaming information used to purchase these items. Users can use this gaming library as a centralized hub to learn quick facts about games, and even contribute to the library with their own information. The app is also searchable by platform, so users can filter and request information for currently owned gaming systems. 
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-# Phase 3 project Front End
+This app was created using a ```React``` frontend and a ```Sinatra``` server backend for the gaming data. Sinatra backend server template was forked and cloned from Flatiron repository, and ```bundle install``` was used to retrieve Ruby gems. ```React``` frontend was created running ```npm create-react-app```.
