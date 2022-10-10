@@ -1,5 +1,8 @@
 import React, {useState} from "react"
 import EditGame from "./EditGame";
+import Button from '@mui/material/Button';
+import DeleteIcon from '@mui/icons-material/Delete'
+import EditIcon from '@mui/icons-material/Edit';
 
 function Game({game, onDeleteGame, onUpdateGame}) {
     const [editGame, setEditGame] = useState(false)
@@ -19,25 +22,27 @@ function Game({game, onDeleteGame, onUpdateGame}) {
 
     return (
         <div>
-            {editGame ? (<EditGame key = {game.id} id={game.id} title={game.title} platform = {game.platform} price = {game.price} onUpdateGame={handleUpdateGame} />
+            {editGame ? (<EditGame key = {game.id} id={game.id} title={game.title} platform = {game.platform} price = {game.price}  onUpdateGame={handleUpdateGame} />
         ) : (
           <li>
-            <p>Title: {game.title}</p>
+            <h3>Title: {game.title}</h3>
             <p>Platform: {game.platform}</p>
             <p>Price:  ${game.price}</p>
-            <p>Review:</p>
-            {game.reviews.score}
+            <h4>Review:</h4>
+            {game.reviews.map((review) => (
+              <p>Score: {review.score}</p>
+               ))}
             </li>
               
         )}
             {
                 <div className="update_games">
-                <button onClick={() => setEditGame((editGame) => !editGame)}>
-                  Edit Game
-                </button>
-                <button onClick={handleDeleteClick}>
-                 Delete Game
-                </button>
+                <Button onClick={() => setEditGame((editGame) => !editGame)}>
+                <EditIcon>edit_game</EditIcon>
+                </Button>
+                <Button onClick={handleDeleteClick}>
+                 <DeleteIcon>delete_game</DeleteIcon>
+                </Button>
               </div>
             }
             

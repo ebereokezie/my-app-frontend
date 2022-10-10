@@ -10,11 +10,19 @@ function Home(){
   const [games, setGames] = useState([])
   const [filterByPlatform, setFilterByPlatform] = useState("All")
 
+  const filteredGames = games.filter((game)=> {
+    if (filterByPlatform === "All"){
+      return true
+    }
+    else {
+      return game.platform === filterByPlatform
+  }})
+
   useEffect(() => {
     fetch("http://localhost:9292/games")
       .then(data => data.json())
       .then(data => setGames(data));
-  }, []);
+  }, [filteredGames]);
 
   function onAddGame(newGame){
     setGames([...games, newGame]);
@@ -36,13 +44,7 @@ function Home(){
     setGames(updatedGames)
   }
 
-  const filteredGames = games.filter((game)=> {
-    if (filterByPlatform === "All"){
-      return true
-    }
-    else {
-      return game.platform === filterByPlatform
-  }})
+ 
     return (
         <div className="Home">
             <header className="Home-header">

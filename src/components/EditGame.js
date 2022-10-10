@@ -6,7 +6,6 @@ function EditGame({id, title, platform, price, onUpdateGame}){
     const [gamePrice, setPrice] = useState(price)
 
 
-
     function handleFormSubmit(e) {
         e.preventDefault();
 
@@ -26,10 +25,10 @@ function EditGame({id, title, platform, price, onUpdateGame}){
           .then((data) => onUpdateGame(data));
       }
     return (
-        <form className="edit-message" onSubmit={handleFormSubmit}>
+        <form className="edit-game" onSubmit={handleFormSubmit}>
           <input type="text" name="title" value={gameTitle} onChange={(e) => setTitle(e.target.value)} />
           <input type="text" name="platform" value={gamePlatform} onChange={(e) => setPlatform(e.target.value)} />
-          <input type="text" name="price" value={gamePrice} onChange={(e) => setPrice(e.target.value)} />
+          <input type="number" name="price" value={gamePrice} onChange={(e) => setPrice(e.target.value)} />
           <input type="submit" value="Save" />
         </form>
     )

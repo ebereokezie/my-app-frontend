@@ -1,14 +1,23 @@
-import React from "react";
+import React, {useState} from "react";
 import Game from "./Game"
+
+import List from '@mui/material/List';
+
 
 function GameList({
     games,
     onDeleteGame,
     onUpdateGame
 }) {
+
+    
     return (
-        <div className ="toDoList">
-            <li>
+        <div className ="grid">
+            <List 
+                 sx={{ width: '100%', bgcolor: 'background.paper' }}
+                 component="nav"
+                 className ="grid"
+            >
                 {games.map((game) => (
                     <Game
                         key={game.id}
@@ -17,7 +26,7 @@ function GameList({
                         onUpdateGame={onUpdateGame}
                     />
                 ))}
-            </li>
+            </List>
         </div>
     )
 }
