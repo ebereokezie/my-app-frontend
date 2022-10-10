@@ -53,7 +53,7 @@ function Home(){
         <SearchBar games = {filteredGames} setGames = {setGames} setFilterByPlatform = {setFilterByPlatform} />
         
         <NewGame onAddGame ={onAddGame} games={filteredGames} />
-        
+     
         <GameList games={filteredGames} onDeleteGame={handleDeleteGame} onUpdateGame={handleUpdateGame} />
         
         </div>
