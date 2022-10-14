@@ -22,10 +22,10 @@ function Home(){
     fetch("http://localhost:9292/games")
       .then(data => data.json())
       .then(data => setGames(data));
-  }, [filteredGames]);
+  }, []);
 
   function onAddGame(newGame){
-    setGames([...games, newGame]);
+    setGames((games) => [...games, newGame]);
   }
 
   function handleDeleteGame(id){

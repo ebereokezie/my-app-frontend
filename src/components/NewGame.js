@@ -34,11 +34,13 @@ function NewGame({onAddGame, games}) {
           
           setNewGameTitle("")
           setNewGamePlatform("")
-          setNewGamePrice(0)
-          setNewReviewScore(0)
+          setNewGamePrice("")
+          setNewReviewScore("")
           
           ;
         }
+
+     
 
 
 return (

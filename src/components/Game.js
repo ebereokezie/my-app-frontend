@@ -15,23 +15,24 @@ function Game({game, onDeleteGame, onUpdateGame}) {
         onDeleteGame(game.id);
       }
 
+      const reviewScore =  game.reviews.map((review) => (
+        <li key ={game.id}>Score: {review.score}</li>))
+
     function handleUpdateGame(updateGame) {
       setEditGame(false);
       onUpdateGame(updateGame)
     }
-
+    console.log(game.reviews)
     return (
         <div>
-            {editGame ? (<EditGame key = {game.id} id={game.id} title={game.title} platform = {game.platform} price = {game.price}  onUpdateGame={handleUpdateGame} />
+            {editGame ? (<EditGame key = {game.id} id={game.id} title={game.title} platform = {game.platform} price = {game.price} onUpdateGame={handleUpdateGame} />
         ) : (
           <li>
             <h3>Title: {game.title}</h3>
             <p>Platform: {game.platform}</p>
             <p>Price:  ${game.price}</p>
             <h4>Review:</h4>
-            {game.reviews.map((review) => (
-              <p>Score: {review.score}</p>
-               ))}
+            {game.reviews ? reviewScore : "No Reviews yet"}
             </li>
               
         )}
