@@ -30,7 +30,8 @@ function Game({game, onDeleteGame, onUpdateGame, onAddReviews}) {
         <div className = "cards">
             {editGame ? (<EditGame key = {game.id} id={game.id} title={game.title} platform = {game.platform} price = {game.price} onUpdateGame={handleUpdateGame} />
         ) : (
-          <li>
+        <>
+        <li>
             <h3>Title: {game.title}</h3>
             <p>Platform: {game.platform}</p>
             <p>Price:  ${game.price}</p>
@@ -40,9 +41,10 @@ function Game({game, onDeleteGame, onUpdateGame, onAddReviews}) {
             </div>
             </li>
             
-              
+            <NewReview key = {game.id} game = {game} onAddReviews ={onAddReviews} />
+            </>  
         )}
-          <NewReview key = {game.id} game = {game} onAddReviews ={onAddReviews} />
+          
             {
                 <div className="update_games">
                 <Button onClick={() => setEditGame((editGame) => !editGame)}>
