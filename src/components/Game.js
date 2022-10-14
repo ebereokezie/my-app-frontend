@@ -16,7 +16,7 @@ function Game({game, onDeleteGame, onUpdateGame}) {
       }
 
       const reviewScore =  game.reviews.map((review) => (
-        <li key ={game.id}>Score: {review.score}</li>))
+        <li key = {game.id}>Score: {review.score}</li>))
 
     function handleUpdateGame(updateGame) {
       setEditGame(false);
@@ -32,7 +32,8 @@ function Game({game, onDeleteGame, onUpdateGame}) {
             <p>Platform: {game.platform}</p>
             <p>Price:  ${game.price}</p>
             <h4>Review:</h4>
-            {game.reviews ? reviewScore : "No Reviews yet"}
+            {game.reviews.length !== 0 ? reviewScore : "No Reviews Yet"}
+            {/* {reviewScore ? reviewScore : "No Reviews yet" } */}
             </li>
               
         )}
