@@ -5,7 +5,7 @@ function NewGame({onAddGame, games}) {
 
 
    
-      // const [newReviewScore, setNewReviewScore] = useState("")
+     
       const [newGameTitle, setNewGameTitle] = useState("")
       const [newGamePlatform, setNewGamePlatform] = useState("")
       const [newGamePrice, setNewGamePrice] = useState("")
@@ -25,8 +25,6 @@ function NewGame({onAddGame, games}) {
           "title": newGameTitle,
           "platform": newGamePlatform,
           "price": newGamePrice,
-          // "score": newReviewScore,
-          // "game_id": (games.length + 1)
           }),
         })
           .then(data => data.json())
@@ -35,7 +33,6 @@ function NewGame({onAddGame, games}) {
           setNewGameTitle("")
           setNewGamePlatform("")
           setNewGamePrice("")
-          // setNewReviewScore("")
           
           ;
         }
@@ -50,7 +47,6 @@ return (
         <input type="text" name="title" placeholder = "Game Title" value={newGameTitle} onChange={(e)=> setNewGameTitle(e.target.value) } />
         <input type="text" name="platform" placeholder = "Game Platform" value={newGamePlatform} onChange={(e)=> setNewGamePlatform(e.target.value)} />
         <input type="number" name="price" placeholder = "Game Price" value={newGamePrice} onChange={(e)=> setNewGamePrice(e.target.value)} />
-        {/* <input type="number" name="score" placeholder = "Review Score" value={newReviewScore} onChange={(e)=> setNewReviewScore( e.target.value)} /> */}
         <button type="submit">Add A Game</button>
     </form>
  </div>

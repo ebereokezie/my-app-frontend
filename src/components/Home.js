@@ -8,7 +8,6 @@ function Home(){
 
     
   const [games, setGames] = useState([])
-  // const [reviews, setReviews] = useState([])
   const [filterByPlatform, setFilterByPlatform] = useState("All")
 
  
@@ -26,11 +25,7 @@ function Home(){
       .then(data => setGames(data));
   }, []);
 
-  // useEffect(() => {
-  //   fetch("http://localhost:9292/reviews")
-  //     .then(data => data.json())
-  //     .then(data => setReviews(data));
-  // }, []);
+
 
   function onAddGame(newGame){
     setGames((games) => [...games, newGame]);
@@ -41,7 +36,6 @@ function Home(){
       return game.id === newReview.game_id
     });
     
-    // const updateReview = [...games.reviews, newReview];
     addGameReview.reviews.push(newReview);
 
     setGames(
