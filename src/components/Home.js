@@ -8,8 +8,10 @@ function Home(){
 
     
   const [games, setGames] = useState([])
+  // const [reviews, setReviews] = useState([])
   const [filterByPlatform, setFilterByPlatform] = useState("All")
 
+ 
   const filteredGames = games.filter((game)=> {
     if (filterByPlatform === "All"){
       return true
@@ -24,8 +26,27 @@ function Home(){
       .then(data => setGames(data));
   }, []);
 
+  // useEffect(() => {
+  //   fetch("http://localhost:9292/reviews")
+  //     .then(data => data.json())
+  //     .then(data => setReviews(data));
+  // }, []);
+
   function onAddGame(newGame){
     setGames((games) => [...games, newGame]);
+  }
+
+  function onAddReviews(newReview){
+    const addGameReview = games.find((game) => {
+      return game.id === newReview.game_id
+    });
+    
+    // const updateReview = [...games.reviews, newReview];
+    addGameReview.reviews.push(newReview);
+
+    setGames(
+      games.map((game) => (game.id === addGameReview.id ? addGameReview : game))
+    )
   }
 
   function handleDeleteGame(id){
@@ -44,7 +65,7 @@ function Home(){
     setGames(updatedGames)
   }
 
- 
+
     return (
         <div className="Home">
             <header className="Home-header">
@@ -54,7 +75,7 @@ function Home(){
         
         <NewGame onAddGame ={onAddGame} games={filteredGames} />
      
-        <GameList games={filteredGames} onDeleteGame={handleDeleteGame} onUpdateGame={handleUpdateGame} />
+        <GameList games={filteredGames} onDeleteGame={handleDeleteGame} onUpdateGame={handleUpdateGame} onAddReviews = {onAddReviews} />
         
         </div>
     )
