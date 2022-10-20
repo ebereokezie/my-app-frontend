@@ -1,13 +1,10 @@
-import React, {useEffect, useState} from "react";
+import React, { useState} from "react";
 import GameList from "./GameList";
-import NewGame from "./NewGame";
 import SearchBar from "./Searchbar";
 import "../App.css";
 
 function Home({games, setGames }){
 
-    
-  // const [games, setGames] = useState([])
   const [filterByPlatform, setFilterByPlatform] = useState("All")
 
  
@@ -19,29 +16,6 @@ function Home({games, setGames }){
       return game.platform === filterByPlatform
   }})
 
-  // useEffect(() => {
-  //   fetch("http://localhost:9292/games")
-  //     .then(data => data.json())
-  //     .then(data => setGames(data));
-  // }, []);
-
-
-
-  // function onAddGame(newGame){
-  //   setGames((games) => [...games, newGame]);
-  // }
-
-  function onAddReviews(newReview){
-    const addGameReview = games.find((game) => {
-      return game.id === newReview.game_id
-    });
-    
-    addGameReview.reviews.push(newReview);
-
-    setGames(
-      games.map((game) => (game.id === addGameReview.id ? addGameReview : game))
-    )
-  }
 
   function handleDeleteGame(id){
     const updatedGames = games.filter((game) => game.id !== id);
@@ -66,11 +40,7 @@ function Home({games, setGames }){
                 Games and Review Score Library
             </header>
         <SearchBar games = {filteredGames} setGames = {setGames} setFilterByPlatform = {setFilterByPlatform} />
-        
-        {/* <NewGame onAddGame ={onAddGame} games={filteredGames} /> */}
-     
-        <GameList games={filteredGames} onDeleteGame={handleDeleteGame} onUpdateGame={handleUpdateGame} onAddReviews = {onAddReviews} />
-        
+        <GameList games={filteredGames} onDeleteGame={handleDeleteGame} onUpdateGame={handleUpdateGame} />
         </div>
     )
 

@@ -6,12 +6,12 @@ import DeleteIcon from '@mui/icons-material/Delete'
 import EditIcon from '@mui/icons-material/Edit';
 
 
-function Game({game, onDeleteGame, onUpdateGame, onAddReviews}) {
+function Game({game, onDeleteGame, onUpdateGame}) {
     const [editGame, setEditGame] = useState(false)
 
 
     function handleDeleteClick() {
-        fetch(`http://localhost:9292/games/${game.id}`, {
+        fetch(`http://localhost:9292/game/${game.id}`, {
           method: "DELETE",
         });
     
@@ -41,7 +41,7 @@ function Game({game, onDeleteGame, onUpdateGame, onAddReviews}) {
             </div>
             </li>
             
-            <NewReview key = {game.id} game = {game} onAddReviews ={onAddReviews} />
+            <NewReview key = {game.id} game = {game} onUpdateGame={handleUpdateGame} />
             </>  
         )}
           

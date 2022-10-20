@@ -12,7 +12,7 @@ function EditGame({id, title, platform, price, onUpdateGame}){
         e.preventDefault();
 
     
-        fetch(`http://localhost:9292/games/${id}`, {
+        fetch(`http://localhost:9292/game/${id}`, {
           method: "PATCH",
           headers: {
             "Content-Type": "application/json",

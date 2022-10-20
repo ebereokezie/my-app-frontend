@@ -1,24 +1,23 @@
 import React, {useState} from "react";
 
 
-function NewReview({game, onAddReviews}){
+function NewReview({game, onUpdateGame }){
 
  const [newReviewScore, setNewReviewScore] = useState("")
 
 function handleNewReviewSubmit(e) {
     e.preventDefault();
-      fetch(`http://localhost:9292/review`, {
+      fetch(`http://localhost:9292/reviews/${game.id}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-      "score": newReviewScore,
-      "game_id": game.id
+      "score": newReviewScore
       }),
     })
       .then(data => data.json())
-      .then(data => onAddReviews(data))
+      .then(data => onUpdateGame(data))
    
      setNewReviewScore("")
    }

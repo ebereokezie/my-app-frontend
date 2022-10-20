@@ -12,11 +12,6 @@ import { NavLink } from "react-router-dom";
 
 function NavBar(){
     return(
-        // <div className = "Navbar">
-        //     <NavLink to = "/">Home</NavLink>
-        //     <NavLink to = "/library">Game Library</NavLink>
-        //     <NavLink to = "/addGame">Add a Game</NavLink>
-        // </div>
         <div className = "Navbar">
             <NavLink to = "/" exact style = {linkStyles}>Home</NavLink>
             <NavLink to = "/library" exact style = {linkStyles}>Game Library</NavLink>

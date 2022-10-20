@@ -7,8 +7,7 @@ import List from '@mui/material/List';
 function GameList({
     games,
     onDeleteGame,
-    onUpdateGame,
-    onAddReviews
+    onUpdateGame
 }) {
 
     
@@ -25,7 +24,6 @@ function GameList({
                         game={game}
                         onDeleteGame={onDeleteGame}
                         onUpdateGame={onUpdateGame}
-                        onAddReviews={onAddReviews}
                     />
                 ))}
             </List>

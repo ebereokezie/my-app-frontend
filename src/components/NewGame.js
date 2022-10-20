@@ -16,7 +16,7 @@ function NewGame({onAddGame, games}) {
 
     function handleNewGameSubmit(e) {
         e.preventDefault();
-          fetch("http://localhost:9292/games", {
+          fetch("http://localhost:9292/game", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
