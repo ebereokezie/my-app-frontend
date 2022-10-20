@@ -4,10 +4,10 @@ import NewGame from "./NewGame";
 import SearchBar from "./Searchbar";
 import "../App.css";
 
-function Home(){
+function Home({games, setGames }){
 
     
-  const [games, setGames] = useState([])
+  // const [games, setGames] = useState([])
   const [filterByPlatform, setFilterByPlatform] = useState("All")
 
  
@@ -19,17 +19,17 @@ function Home(){
       return game.platform === filterByPlatform
   }})
 
-  useEffect(() => {
-    fetch("http://localhost:9292/games")
-      .then(data => data.json())
-      .then(data => setGames(data));
-  }, []);
+  // useEffect(() => {
+  //   fetch("http://localhost:9292/games")
+  //     .then(data => data.json())
+  //     .then(data => setGames(data));
+  // }, []);
 
 
 
-  function onAddGame(newGame){
-    setGames((games) => [...games, newGame]);
-  }
+  // function onAddGame(newGame){
+  //   setGames((games) => [...games, newGame]);
+  // }
 
   function onAddReviews(newReview){
     const addGameReview = games.find((game) => {
@@ -67,7 +67,7 @@ function Home(){
             </header>
         <SearchBar games = {filteredGames} setGames = {setGames} setFilterByPlatform = {setFilterByPlatform} />
         
-        <NewGame onAddGame ={onAddGame} games={filteredGames} />
+        {/* <NewGame onAddGame ={onAddGame} games={filteredGames} /> */}
      
         <GameList games={filteredGames} onDeleteGame={handleDeleteGame} onUpdateGame={handleUpdateGame} onAddReviews = {onAddReviews} />
         

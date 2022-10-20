@@ -6,6 +6,7 @@
   font-size: calc(10px + 2vmin);
   color: black;
   font-family: fantasy;
+  background: url(https://www.htmlcsscolor.com/preview/gallery/B0C1DC.png);
 }
 
 .grid {
@@ -75,3 +76,22 @@ font-family: Copperplate, "Copperplate Gothic Light", fantasy; text-decoration: 
     overflow-y: auto;
     text-align:justify;
   }
+
+  .Navbar{
+  background: url(https://www.htmlcsscolor.com/preview/gallery/B0C1DC.png);
+  margin:10px, 10px;
+  padding-top: 19px;
+  padding-bottom: 19px;
+  text-align: center;
+  font-family: Papyrus, fantasy; font-weight: bolder; 
+  }
+
+  .Home-body{
+    text-align: center;
+    font-family: Papyrus, fantasy; font-weight: bolder; 
+  }
+
+  .size{
+    width: 1000px
+  }
+  
