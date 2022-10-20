@@ -25,7 +25,7 @@ function Game({game, onDeleteGame, onUpdateGame, onAddReviews}) {
       setEditGame(false);
       onUpdateGame(updateGame)
     }
-    console.log(game.reviews)
+   
     return (
         <div className = "cards">
             {editGame ? (<EditGame key = {game.id} id={game.id} title={game.title} platform = {game.platform} price = {game.price} onUpdateGame={handleUpdateGame} />
