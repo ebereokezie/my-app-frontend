@@ -33,7 +33,7 @@ function App() {
           <Route exact path = "/">
             <HomePage />
           </Route>
-          <Route exact path = "/library">
+          <Route exact path = "/games">
             <Home games = {games} setGames = {setGames}/>
           </Route>
           <Route exact path = "/addGame">

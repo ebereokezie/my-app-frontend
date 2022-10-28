@@ -14,7 +14,7 @@ function NavBar(){
     return(
         <div className = "Navbar">
             <NavLink to = "/" exact style = {linkStyles}>Home</NavLink>
-            <NavLink to = "/library" exact style = {linkStyles}>Game Library</NavLink>
+            <NavLink to = "/games" exact style = {linkStyles}>Game Library</NavLink>
             <NavLink to = "/addGame" exact style = {linkStyles}>Add a Game</NavLink>
         </div>
     )
